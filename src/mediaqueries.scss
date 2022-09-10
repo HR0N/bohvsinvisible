@@ -1,0 +1,12 @@
+@import "variables";
+
+@media screen and (max-width: 426px){
+  .buttons{
+    overflow: inherit !important;
+  }
+  .stop{
+    top: 55px !important;
+    z-index: 3 !important;
+    opacity: .2 !important;
+  }
+}

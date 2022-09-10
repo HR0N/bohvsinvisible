@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import {connect} from "react-redux";
+import React, {Component} from "react";
+import {Routes, Route} from 'react-router-dom';
+import Home from "./components/Home/Home";
+import Auth from "./components/Auth/Auth";
+import Header from "./components/Header/Header";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import ivankillson from "./img/ivankillson.jpg";
+
+
+class App extends Component{
+
+  componentDidMount() {
+  }
+
+  state = {
+  };
+
+
+  render() {
+    return (
+        <div className={'App'}>
+          {/*<Header/>*/}
+          <Routes>
+            <Route exact={true} path={'/'} element={<Home/>}/>
+            <Route exact={true} path={'/auth'} element={<Auth/>}/>
+          </Routes>
+        </div>
+    );
+  }
 }
 
-export default App;
+
+function mapStateToProps() {
+  return {
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

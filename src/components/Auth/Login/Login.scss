@@ -1,0 +1,59 @@
+.login-form{
+  background-color: rgb(243,243,243);
+  width: 300px;
+  border-radius: .25rem;
+  box-shadow: 1px 1px 6px grey;
+  overflow: hidden;
+  h3{
+    margin-top: 40px;
+    text-align: left;
+    padding: 0 25px;
+    font-size: 1.4em;
+    color: rgb(77,75,72);
+  }
+  form{
+    padding: 0 25px;
+    margin-top: 10px;
+    label{
+      margin-top: 30px;
+      position: relative;
+      display: inline-block;
+      .validate_error{
+        position: absolute;
+        top: -21px;
+        right: 2px;
+        color: #ff6468;
+        font-size: .9em;
+        font-family: "Comic Sans MS", sans-serif;
+        white-space: nowrap;
+      }
+      input{
+        width: 250px;
+        box-shadow: inset 0 0 4px darkgrey;
+        height: 46px;
+        font-size: 1.1em;
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          opacity: .5; /* Firefox */
+        }
+      }
+
+    }
+  }
+  .toggle-form{
+    margin-top: 35px;
+    background-color: rgb(212,222,223);
+    border-top: 1px solid lightgray;
+    padding: 35px 25px 40px;
+    .buttons{
+      display: flex;
+      justify-content: space-between;
+      .auth-form__login{
+        color: white;
+      }
+      .btn{
+        font-weight: 500;
+        font-size: 1.1em;
+      }
+    }
+  }
+}

@@ -1,17 +1,37 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
+import './mediaqueries.scss'
+import './variables.scss'
+import './fonts/fonts.scss'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from "react-redux";
+import {BrowserRouter} from "react-router-dom";
+import {createStore, applyMiddleware} from "redux";
+import thunk from "redux-thunk";
+import rootReducer from './redux/reducers/rootReducer';
+import './services/localization';
+import Loader from "./UXExtra/Loader/Loader";
+import 'h-bootstrap/h-boobstrap.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
+const root = ReactDOM.createRoot(document.getElementById("root"));
+document.title = 'War Tears';
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <Provider store={store}>
+            <BrowserRouter>
+                <Suspense fallback={<Loader/>}> {/*for i18next (localization)*/}
+                    <App/>
+                </Suspense>
+            </BrowserRouter>
+        </Provider>
+    </React.StrictMode>
 );
+export {store};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
+
 reportWebVitals();
