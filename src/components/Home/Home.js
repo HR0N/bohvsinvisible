@@ -22,7 +22,7 @@ body.hidden();
 
 
 function Home() {
-    let volume = $(document).find('.volume');
+    // let volume = $(document).find('.volume');
 
     const input_volume = input.init(50);
     const [curTrack, setCurTrack] = useState(cj);
@@ -55,7 +55,7 @@ function Home() {
         $(buttons).fadeIn(2000);
         setTimeout(()=>{$(buttons).css({'display': 'grid'})}, 0);
         $(buttons).addClass('show_buttons');
-        $(volume).fadeIn(500);
+
     }, delay)};
     const img_width = (delay = 6000)=>{setTimeout(()=>{
         $(document).find('.img_main').css({'width': '92%'});
@@ -69,6 +69,7 @@ function Home() {
     };
     setTimeout(()=>{fadeOutCurtain();}, 1000);
     setTimeout(()=>{fadeInButtons();}, 4000);
+    setTimeout(()=>{$(document).find('.volume').fadeIn(500);}, 10000);
     setTimeout(()=>{img_width();}, 2000);
 
 
@@ -103,6 +104,7 @@ function Home() {
             fadeOutTitleComment();
             fadeInButtons(7000);
             img_width(5000);
+            $(document).find('.volume').fadeIn(8500);
             play();
         }}
         ><div className="title_comment"><div className="span1">click.</div><div className="span2">ore not</div></div></div>
